@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, esint}
+\usepackage{wasysym}
+\usepackage{qrcode}
+\usepackage[colorlinks]{hyperref}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[left=2cm, top=3cm, right=2cm]{geometry}
+\usepackage{minted}
+\usepackage{booktabs}
+\usepackage{svg}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\definecolor{LightGray}{gray}{0.975}
+\hypersetup{
+  colorlinks,
+  linkcolor=blue,
+  urlcolor=blue
+}
+
+\title{ML101 \\ Lab 02: A `gentle' Introduction to Linear Model Selection \& Regularization.}
+\author{Andrés Oswaldo Calderón Romero, Ph.D.}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+While Ordinary Least Squares (OLS) linear regression offers an intuitive baseline for predictive modeling, its performance degrades when confronting high-dimensional feature spaces, multicollinearity, or scarce observations relative to predictors ($p \gg n$). In such regimes, unconstrained least squares estimates suffer from high variance, causing severe overfitting and poor out-of-sample generalization. To mitigate these shortcomings, modern statistical learning relies on model selection and regularization paradigms: discrete subset selection (best subset, forward, and backward stepwise) isolates parsimonious predictor sets, shrinkage methods like Ridge ($\ell_2$) and Lasso ($\ell_1$) constrain coefficients to trade small amounts of bias for major variance reductions, and dimension reduction approaches like Principal Components Analysis project data onto orthogonal directions of maximal variance.
+
+Building upon the foundations presented in Chapter~6 of \textit{An Introduction to Statistical Learning} (ISLRv2), this lab focuses on implementing, diagnosing, and contrasting these workflows on real-world empirical data. By operationalizing these techniques outside of the native R ecosystem (e.g., in Python), students will explore practical data pitfalls and evaluate the critical trade-offs among predictive accuracy, computational tractability, and model interpretability.
+
+% \section{Additional Resources}
+% \label{sec:resources}
+
+\section{Lab: Linear Models and Regularization}
+\label{sec:lab}
+
+In this lab, we will work through the exercises in Chapter~6 of ISLRv2\footnote{James, G., Witten, D., Hastie, T., \& Tibshirani, R. (2023). \textit{An Introduction to Statistical Learning: with Applications in R} (2nd ed.). Springer. \url{https://www.statlearning.com/}}. Specifically, from Section~\textit{6.5 Lab: Linear Models and Regularization Methods} (p.~267), we will explore the following subsections:
+
+\begin{itemize}
+\item 6.5.1 Subset Selection Methods,
+\item 6.5.2 Ridge Regression and the Lasso, and
+\item 6.5.3 PCR and PLS Regression.
+\end{itemize}
+
+You do not need to include evidence from this walkthrough in your lab report; however, you must familiarize yourself with these tools to complete the autonomous work in the following section.
+
+\section{Autonomous Work}
+\label{sec:work}
+
+So, now that you are familiar with model selection and regularization techniques, you will apply them to a dataset of your choice. You may revisit the dataset used in Lab 01, choose a new benchmark from the UCI Machine Learning Repository, or --we highly encouraged-- use your own data. Once you have selected your dataset, apply the methods covered in Section~\ref{sec:lab}. Specifically, you will perform:
+
+\begin{enumerate}
+  \item Best Subset Selection.
+  \item Forward Stepwise Selection.
+  \item Backward Stepwise Selection.
+  \item Ridge Regression.
+  \item Lasso Regression.
+  \item Principal components analysis.
+\end{enumerate}
+
+Do not be discouraged if a technique fails or yields poor performance. The primary objective is to familiarize yourself with the available tools and learn how to diagnose and address data-related pitfalls. Please note: you must use a programming language other than R (e.g., Python or Julia).
+
+\section{Deliverables}
+Each group must submit a well-structured \textbf{PDF} report documenting the implementation and results of the methods described in Section~\ref{sec:work}. Your report should thoroughly discuss key findings, performance trade-offs, and noteworthy observations. Submissions must be uploaded through the designated Brightspace\texttrademark{} assignment link within \textbf{21 days} of this lab session.
+
+\vspace{5mm}
+Happy Hacking! \includesvg[width=4mm]{figures/sunglasses}
+
+\end{document}
+
